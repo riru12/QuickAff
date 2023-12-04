@@ -50,21 +50,18 @@ const MembershipForm = () => {
     <div>
       <h1 className="text-3xl font-bold text-black mb-4">Add/Update Member</h1>
       <form onSubmit={handleSubmit}>
-        <label className="text-black mt-2">
-          Student ID:
-          <input type="text" name="student_id" value={formData.student_id} onChange={handleChange} />
-        </label>
-        <br />
-        <label className="text-black mt-2">
-          Last Name:
-          <input type="text" name="last_name" value={formData.last_name} onChange={handleChange} />
-        </label>
-        <br />
-        <label className="text-black mt-2">
-          First Name:
-          <input type="text" name="first_name" value={formData.first_name} onChange={handleChange} />
-        </label>
-        <br />
+        <div className="flex flex-col">
+          <label className="text-black font-bold mb-2">Student ID</label>
+          <input class="rounded shadow py-2 px-3 mb-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="search" type="text" placeholder="Student ID" name="student_id" value={formData.student_id} onChange={handleChange} />
+        </div>
+        <div className="flex flex-col">
+          <label className="text-black font-bold mb-2">Last Name</label>
+          <input class="rounded shadow py-2 px-3 mb-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="search" type="text" placeholder="Last Name" name="last_name" value={formData.last_name} onChange={handleChange} />
+        </div>
+        <div className="flex flex-col">
+          <label className="text-black font-bold mb-2">First Name</label>
+          <input class="rounded shadow py-2 px-3 mb-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="search" type="text" placeholder="First Name" name="first_name" value={formData.first_name} onChange={handleChange} />
+        </div>
         <label className="text-black mt-2">
           Middle Name:
           <input type="text" name="middle_name" value={formData.middle_name} onChange={handleChange} />
