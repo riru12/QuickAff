@@ -2,6 +2,7 @@
 import { useState } from 'react';
 
 const MembershipForm = () => {
+
   const [formData, setFormData] = useState({
     student_id: '',
     last_name: '',
@@ -42,6 +43,7 @@ const MembershipForm = () => {
       renewal_payment: '',
       committee: '',
     });
+    router.push('/');
   };
 
   return (
@@ -62,7 +64,46 @@ const MembershipForm = () => {
           First Name:
           <input type="text" name="first_name" value={formData.first_name} onChange={handleChange} />
         </label>
-        {/* Repeat similar structure for other form fields */}
+        <br />
+        <label className="text-black mt-2">
+          Middle Name:
+          <input type="text" name="middle_name" value={formData.middle_name} onChange={handleChange} />
+        </label>
+        <br />
+        <label className="text-black mt-2">
+          Nickname:
+          <input type="text" name="nickname" value={formData.nickname} onChange={handleChange} />
+        </label>
+        <br />
+        <label className="text-black mt-2">
+          UP Mail:
+          <input type="email" name="up_mail" value={formData.up_mail} onChange={handleChange} />
+        </label>
+        <br />
+        <label className="text-black mt-2">
+          Course:
+          <input type="text" name="course" value={formData.course} onChange={handleChange} />
+        </label>
+        <br />
+        <label className="text-black mt-2">
+          App Batch:
+          <input type="text" name="app_batch" value={formData.app_batch} onChange={handleChange} />
+        </label>
+        <br />
+        <label className="text-black mt-2">
+          Membership Status:
+          <input type="text" name="membership_status" value={formData.membership_status} onChange={handleChange} />
+        </label>
+        <br />
+        <label className="text-black mt-2">
+          Renewal Payment:
+          <input type="text" name="renewal_payment" value={formData.renewal_payment} onChange={handleChange} />
+        </label>
+        <br />
+        <label className="text-black mt-2">
+          Committee:
+          <input type="text" name="committee" value={formData.committee} onChange={handleChange} />
+        </label>
         <br />
         <button className="rounded p-4 text-white bg-black" type="submit">Submit</button>
       </form>
