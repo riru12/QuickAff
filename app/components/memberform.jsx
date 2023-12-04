@@ -80,7 +80,7 @@ const MembershipForm = () => {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold text-black mb-4">Add/Update Member</h1>
+      <h1 className="text-3xl font-bold text-black mb-4">Member Profile</h1>
       <form onSubmit={handleSubmit}>
 
         <div className="flex flex-row gap-x-2 p-2">
