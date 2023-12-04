@@ -29,8 +29,13 @@ const MembersTable = () => {
     data.map((entry,index) => { 
         console.log(`${entry.id}`)
     })
+    const GoToMemberForm = () => {
+        router.push('/member-form');
+      };
     return (
         <div className="text-black ml-28"> 
+            <input class="rounded shadow py-2 px-3 mb-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="search" type="text" placeholder="Search"></input>
+            <button onClick={GoToMemberForm}>Add/Update Member</button>
             <table className="table-fixed">
                 <thead id="table fields" className="border-b bg-neutral-600 font-medium text-white">
                     <tr>

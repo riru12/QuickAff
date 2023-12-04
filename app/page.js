@@ -2,6 +2,7 @@ import TopNav from './components/topnav'
 import SideNav from './components/sidenav'
 import Dashboard from './components/dashboard'
 import MembersTable from './components/memberstable'
+import MembershipForm from './components/memberform'
 
 export default function Home() {
   return (
@@ -9,7 +10,8 @@ export default function Home() {
       <TopNav />
       <SideNav />
       {/*<Dashboard />*/}
-      <MembersTable />
+      <MembershipForm />
+      {/*<MembersTable />*/}
     </main>
   )
 }
