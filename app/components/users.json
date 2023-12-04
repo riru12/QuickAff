@@ -1,0 +1,28 @@
+[
+    {
+        "id": 202006914,
+        "last_name": "Gonzaga",
+        "first_name": "Raisa Ruth",
+        "middle_name": "Ciriaco",
+        "nickname": "Chase",
+        "up_mail": "rcgonzaga2@up.edu.ph",
+        "course": "BS Computer Science",
+        "app_batch": "2021A",
+        "mem_status": "Active",
+        "renewal_payment_status": "Paid",
+        "committee": "Membership"
+    },
+    {
+        "id": 202006921,
+        "last_name": "Rina",
+        "first_name": "Brill Julian",
+        "middle_name": "Gervacio",
+        "nickname": "Brill",
+        "up_mail": "bgrina@up.edu.ph",
+        "course": "BS Computer Science",
+        "app_batch": "2223A",
+        "mem_status": "Active",
+        "renewal_payment_status": "Paid",
+        "committee": "Information and Public Relations"
+    }
+]
