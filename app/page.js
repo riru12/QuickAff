@@ -5,6 +5,7 @@ import SideNav from './components/sidenav'
 import Dashboard from './components/dashboard'
 import MembersTable from './components/memberstable'
 import MembershipForm from './components/memberform'
+import Renewal from './components/renewal'; 
 
 export default function Home() {
   const [activeComponent, setActiveComponent] = useState('Dashboard');
@@ -18,6 +19,8 @@ export default function Home() {
         //return <MembershipForm setActiveComponent={setActiveComponent} />;
       case 'MembersTable':
         return <MembersTable />;
+      case 'Renewal': 
+        return <Renewal />;
       default:
         return null;
     }
