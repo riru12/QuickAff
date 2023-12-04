@@ -1,5 +1,5 @@
 "use client"
-import { useState } from 'react';
+import { useState, useEffect, React } from 'react';
 
 const MembershipForm = () => {
   const [formData, setFormData] = useState({
@@ -15,6 +15,18 @@ const MembershipForm = () => {
     renewal_payment: '',
     committee: '',
   });
+  const [data, setData] = useState(null)
+  const [isLoading, setLoading] = useState(true)
+
+  useEffect(() => {
+    fetch('http://localhost:3001/users/202006921')
+        .then((res) => res.json())
+        .then((data) => {
+        setData(data[0])
+        setLoading(false)
+        })
+  }, [])
+  console.log(data)
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -78,6 +90,10 @@ const MembershipForm = () => {
     // router.push('/');
   };
 
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+
   return (
     <div>
       <h1 className="text-3xl font-bold text-black mb-4">Member Profile</h1>
@@ -86,41 +102,41 @@ const MembershipForm = () => {
         <div className="flex flex-row gap-x-2 p-2">
           <div className="flex flex-col grow">
             <label className="text-black font-bold mb-2">Student ID</label>
-            <input class="rounded shadow py-2 px-3 mb-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="20XXXXXX" name="student_id" value={formData.student_id} onChange={handleChange} />
+            <input class="rounded shadow py-2 px-3 mb-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder={data.student_id} name="student_id" value={formData.student_id} onChange={handleChange} />
           </div>
           <div className="flex flex-col grow">
             <label className="text-black font-bold mb-2">UP Mail</label>
-            <input class="rounded shadow py-2 px-3 mb-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="abcd@up.edu.ph" name="up_mail" value={formData.up_mail} onChange={handleChange} />
+            <input class="rounded shadow py-2 px-3 mb-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder={data.up_mail} name="up_mail" value={formData.up_mail} onChange={handleChange} />
           </div>
         </div>
 
         <div className="flex flex-row gap-x-2 p-2">
           <div className="flex flex-col">
             <label className="text-black font-bold mb-2">Last Name</label>
-            <input class="rounded shadow py-2 px-3 mb-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="Last Name" name="last_name" value={formData.last_name} onChange={handleChange} />
+            <input class="rounded shadow py-2 px-3 mb-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder={data.last_name} name="last_name" value={formData.last_name} onChange={handleChange} />
           </div>
           <div className="flex flex-col">
             <label className="text-black font-bold mb-2">First Name</label>
-            <input class="rounded shadow py-2 px-3 mb-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="First Name" name="first_name" value={formData.first_name} onChange={handleChange} />
+            <input class="rounded shadow py-2 px-3 mb-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder={data.first_name} name="first_name" value={formData.first_name} onChange={handleChange} />
           </div>
           <div className="flex flex-col">
             <label className="text-black font-bold mb-2">Middle Name</label>
-            <input class="rounded shadow py-2 px-3 mb-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="Middle Name" name="middle_name" value={formData.middle_name} onChange={handleChange} />
+            <input class="rounded shadow py-2 px-3 mb-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder={data.middle_name} name="middle_name" value={formData.middle_name} onChange={handleChange} />
           </div>
         </div>
 
         <div className="flex flex-row gap-x-2 p-2">
           <div className="flex flex-col grow">
             <label className="text-black font-bold mb-2">Nickname</label>
-            <input class="rounded shadow py-2 px-3 mb-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="Nickname" name="nickname" value={formData.nickname} onChange={handleChange} />
+            <input class="rounded shadow py-2 px-3 mb-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder={data.nickname} name="nickname" value={formData.nickname} onChange={handleChange} />
           </div>
           <div className="flex flex-col grow">
             <label className="text-black font-bold mb-2">Course</label>
-            <input class="rounded shadow py-2 px-3 mb-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="BS Computer Science" name="course" value={formData.course} onChange={handleChange} />
+            <input class="rounded shadow py-2 px-3 mb-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder={data.course} name="course" value={formData.course} onChange={handleChange} />
           </div>
           <div className="flex flex-col grow">
             <label className="text-black font-bold mb-2">App Batch</label>
-            <input class="rounded shadow py-2 px-3 mb-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="PopApp" name="app_batch" value={formData.app_batch} onChange={handleChange} />
+            <input class="rounded shadow py-2 px-3 mb-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder={data.app_batch} name="app_batch" value={formData.app_batch} onChange={handleChange} />
           </div>
         </div>
         <div className="p-2">
