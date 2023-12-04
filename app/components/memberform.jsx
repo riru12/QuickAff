@@ -36,7 +36,30 @@ const MembershipForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add your form submission logic here
+
+    setFormData((data) => ({
+      ...data,
+      student_id: parseInt(data.student_id, 10),
+    }));
+
+    fetch('http://localhost:3001/users', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json", // Set the content type of the request
+        // You can add other headers if needed
+      },
+      body: JSON.stringify(formData), // Convert the data to JSON format
+    })
+      //.then(response => response.json())
+      .then(data => {
+        // Handle the response data
+        console.log(data);
+      })
+      .catch(error => {
+        // Handle errors
+        console.error('Error:', error);
+      });
+
     console.log('Form submitted:', formData);
     // Reset the form fields
     setFormData({
@@ -62,12 +85,12 @@ const MembershipForm = () => {
 
         <div className="flex flex-row gap-x-2 p-2">
           <div className="flex flex-col grow">
-            <label className="text-black font-bold mb-2">UP Mail</label>
-            <input class="rounded shadow py-2 px-3 mb-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="abcd@up.edu.ph" name="up_mail" value={formData.up_mail} onChange={handleChange} />
-          </div>
-          <div className="flex flex-col grow">
             <label className="text-black font-bold mb-2">Student ID</label>
             <input class="rounded shadow py-2 px-3 mb-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="20XXXXXX" name="student_id" value={formData.student_id} onChange={handleChange} />
+          </div>
+          <div className="flex flex-col grow">
+            <label className="text-black font-bold mb-2">UP Mail</label>
+            <input class="rounded shadow py-2 px-3 mb-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="abcd@up.edu.ph" name="up_mail" value={formData.up_mail} onChange={handleChange} />
           </div>
         </div>
 
