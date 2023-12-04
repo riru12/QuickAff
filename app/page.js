@@ -14,11 +14,10 @@ export default function Home() {
       case 'Dashboard':
         return <Dashboard />;
       case 'MembershipForm':
-        return <MembershipForm />;
+        return <MembershipForm />
+        //return <MembershipForm setActiveComponent={setActiveComponent} />;
       case 'MembersTable':
         return <MembersTable />;
-      case 'MembersForm':
-        return <MembersTable setActiveComponent={setActiveComponent} />;
       default:
         return null;
     }

@@ -14,6 +14,9 @@ const SideNav = ({ setActiveComponent }) => {
             <button onClick={() => handleButtonClick('MembersTable')} className="flex flex-row text-[#858585] gap-2 hover:text-[#f9f9f9] hover:bg-[#858585] p-2 rounded mt-2">
                 <UserIcon className="h-6 w-6"/> Members
             </button>
+            <button onClick={() => handleButtonClick('MembershipForm')} className="flex flex-row text-[#858585] gap-2 hover:text-[#f9f9f9] hover:bg-[#858585] p-2 rounded mt-2">
+                <UserIcon className="h-6 w-6"/> Membership Form
+            </button>
             <button onClick={() => handleButtonClick('Renewal')} className="flex flex-row text-[#858585] gap-2 hover:text-[#f9f9f9] hover:bg-[#858585] p-2 rounded mt-2">
                 <ArrowPathIcon className="h-6 w-6"/> Renewal
             </button>
