@@ -10,7 +10,7 @@ const tableFields = fieldArray.map((field, index)=>(
 ))
 
 var tableData = data.map((entry,index) => (
-    <tr>
+    <tr key={index}>
         <td className="pl-2 pr-2">{entry.id}</td>
         <td className="pl-2 pr-2">{entry.last_name}</td>
         <td className="pl-2 pr-2">{entry.first_name}</td>
@@ -25,17 +25,17 @@ var tableData = data.map((entry,index) => (
     </tr>
 ))
 
-const MembersTable = () => {
+const MembersTable = ({ setActiveComponent }) => {
     data.map((entry,index) => { 
         console.log(`${entry.id}`)
     })
-    const GoToMemberForm = () => {
-        router.push('/member-form');
+    const handleButtonClick = (component) => {
+        setActiveComponent(component);
       };
     return (
         <div className="text-black ml-28"> 
             <input class="rounded shadow py-2 px-3 mb-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="search" type="text" placeholder="Search"></input>
-            <button onClick={GoToMemberForm}>Add/Update Member</button>
+            <button onClick={() => handleButtonClick('MembershipForm')}>Add/Update Member</button>
             <table className="table-fixed">
                 <thead id="table fields" className="border-b bg-neutral-600 font-medium text-white">
                     <tr>
