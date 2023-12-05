@@ -43,7 +43,7 @@ function MembersTable() {
     ))
 
     return (
-        <div className="text-black ml-28"> 
+        <div className="text-black ml-40 mr-2 mt-16"> 
             <table className="table-fixed">
                 <thead id="table fields" className="border-b bg-neutral-600 font-medium text-white">
                     <tr>
