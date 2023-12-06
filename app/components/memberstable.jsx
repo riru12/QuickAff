@@ -37,7 +37,11 @@ function MembersTable() {
             <td className="px-6 py-4 overflow-hidden whitespace-nowrap overflow-x-auto">{entry.course}</td>
             <td className="px-6 py-4 overflow-hidden whitespace-nowrap overflow-x-auto">{entry.app_batch}</td>
             <td className="px-6 py-4 overflow-hidden whitespace-nowrap overflow-x-auto">{entry.mem_status}</td>
-            <td className="px-6 py-4 overflow-hidden whitespace-nowrap overflow-x-auto">{entry.renewal_payment_status}</td>
+            <td className="px-6 py-4 overflow-hidden whitespace-nowrap overflow-x-auto">
+                <div className={`rounded-full text-center p-2 font-bold text-white ${entry.renewal_payment_status === "Paid" ? 'bg-[#86CC65]' : (entry.renewal_payment_status === "Pending" ? 'bg-[#EDB851]' : 'bg-[#E96666]')}`}>
+                    {entry.renewal_payment_status}
+                </div>
+            </td>
             <td className="px-6 py-4">{entry.committee}</td>
         </tr>
     ))
@@ -46,9 +50,9 @@ function MembersTable() {
         <div className="ml-40 mt-16 h-full flex">
             <div className="flex flex-col">
                 <input class="rounded w-48 shadow py-2 px-3 mb-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="Search"/>
-                <div className="text-black overflow-auto shadow-md sm:rounded-lg w-full max-h-[90vh]"> {/* Adjust max height as needed */}
+                <div className="text-black overflow-auto shadow-md sm:rounded-lg w-full max-h-[90vh]">
                     <table className="table-fixed w-full">
-                        <thead className="text-xs text-gray-700 uppercase bg-gray-50">
+                        <thead className="text-xs text-gray-700 uppercase bg-gray-50 sticky top-0">
                             <tr>{tableFields}</tr>
                         </thead>
                         <tbody id="table content">{tableData}</tbody>
